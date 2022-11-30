@@ -75,6 +75,38 @@ class ConversationList extends StatelessWidget {
                           Container()
                     ],
                   ),
+                ),
+                const SizedBox(
+                  width: 20,
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      conversationList[index]['name'],
+                      style: const TextStyle(
+                        fontSize: 17,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 5,
+                    ),
+
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width - 135,
+                      child: Text(
+                        conversationList[index]['message'] +
+                          " - " +
+                          conversationList[index]['time'],
+                        style: TextStyle(
+                          fontSize: 15,
+                          color: const Color(0xFF000000).withOpacity(0.7),
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                    )
+                  ],
                 )
               ],
             ),
