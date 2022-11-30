@@ -1,3 +1,4 @@
+import 'package:chat_ui/screens/conversation_list.dart';
 import 'package:chat_ui/screens/user_stories.dart';
 import 'package:flutter/material.dart';
 
@@ -78,6 +79,10 @@ class _ConversationsState extends State<Conversations> {
                     height: 20,
                   ),
                   const UserStories(),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  const ConversationList(),
                 ],
               ),
             ),

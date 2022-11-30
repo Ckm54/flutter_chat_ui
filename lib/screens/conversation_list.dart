@@ -5,7 +5,83 @@ class ConversationList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Column(
+      children: List.generate(conversationList.length, (index) {
+        return InkWell(
+          child: Padding(
+            padding: const EdgeInsets.only(bottom: 20),
+            child: Row(
+              children: <Widget>[
+                SizedBox(
+                  width: 60,
+                  height: 60,
+                  child: Stack(
+                    children: <Widget>[
+                      conversationList[index]['hasStory'] ?
+                          Container(
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              border: Border.all(
+                                color: Colors.blueAccent,
+                                width: 3
+                              )
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.all(3.0),
+                              child: Container(
+                                width: 75,
+                                height: 75,
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  image: DecorationImage(
+                                    image: NetworkImage(
+                                      conversationList[index]['imageUrl']
+                                    ),
+                                    fit: BoxFit.cover,
+                                  )
+                                ),
+                              ),
+                            ),
+                          )
+                          :
+                          Container(
+                            width: 70,
+                            height: 70,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              image: DecorationImage(
+                                image: NetworkImage(
+                                  conversationList[index]['imageUrl']
+                                ),
+                                fit: BoxFit.cover,
+                              )
+                            ),
+                          ),
+                      conversationList[index]['isOnline'] ?
+                          Positioned(
+                            top: 38,
+                            left: 42,
+                            child: Container(
+                              width: 20,
+                              height: 20,
+                              decoration: BoxDecoration(
+                                color: const Color(0xFF66BB6A),
+                                shape: BoxShape.circle,
+                                border: Border.all(color: const Color(0xFFFFFFFF)),
+                              ),
+                            ),
+                          )
+                          :
+                          Container()
+                    ],
+                  ),
+                )
+              ],
+            ),
+          ),
+        );
+      }),
+    );
   }
 }
 
